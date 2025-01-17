@@ -29,7 +29,7 @@ options:
 ```
 Notice: hap file can be obtained by whatshap or other SNP phasing software.
 ## Format of input file
-Example of 'haplotype.txt' file:
+Example of hap file:
 ```
 chr1    36142   A       C       36142
 chr1    36243   T       C       36142
@@ -46,5 +46,6 @@ chr1    139327  C       T       139327
 chr1    139365  T       C       139327
 chr1    255193  G       A       255193
 chr1    255936  C       T       255936
-```
 chr1    256020  T       A       255936
+```
+The 1st col is chromosome id, 2nd is postion, 3rd is hap1, 4th is hap2, 5th is haplotype block (optional)
