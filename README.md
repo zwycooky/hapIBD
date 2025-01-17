@@ -1,2 +1,3 @@
 # hapIBD
- An NGS tools of haplotype based IBD detection
+ An NGS tool of haplotype based IBD detection
+# Installation
