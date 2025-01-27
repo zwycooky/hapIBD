@@ -39,9 +39,11 @@ void process_blocks(char ***output_array, int *output_size, BlockCount *hap_bloc
                 sprintf(line, "%d\t%d\t%d\t%d\t%d\t%d\t1", chr_num, start, end, entry->hap1, entry->hap2, entry->low_accuracy);
             } else if (entry->hap2 >= block_read_nums && ph2_ratio >= 0.4 && ph3_ratio >= 0.4) {
                 sprintf(line, "%d\t%d\t%d\t%d\t%d\t%d\t1", chr_num, start, end, entry->hap1, entry->hap2, entry->low_accuracy);
-            } else if (entry->low_accuracy > block_read_nums && ph3_ratio >= 0.8) {
+            } else if (entry->low_accuracy >= block_read_nums && ph3_ratio >= 0.8) {
                 sprintf(line, "%d\t%d\t%d\t%d\t%d\t%d\t0", chr_num, start, end, entry->hap1, entry->hap2, entry->low_accuracy);
-            }else{
+	    } else if (entry->hap1 >= block_read_nums && (ph1_ratio >= 0.8 || ph2_ratio >= 0.8)) {
+            	sprintf(line, "%d\t%d\t%d\t%d\t%d\t%d\t1", chr_num, start, end, entry->hap1, entry->hap2, entry->low_accuracy);
+	    } else {
 		continue;
 	    	printf("%s\n",line);
 	    }
