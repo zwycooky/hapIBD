@@ -8,7 +8,7 @@ cd hapIBD && make
 # Usage
 ```
 Usage:
-  ./hapIBD -OPTIONS VALUES
+  hapIBD -OPTIONS VALUES
 
 options:
 --input options
@@ -26,6 +26,8 @@ options:
 
 --performance options
     -a INT          cpus cores used for the analysis [default: 10]
+--other options
+    -v              version information
 ```
 Notice: hap file can be obtained by whatshap or other SNP phasing software.
 ## Format of input file
