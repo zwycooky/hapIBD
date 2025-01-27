@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include "arguments.h"
 
+#define VERSION "1.3"
+
 // 打印用法说明
 void print_usage(const char *progname) {
     fprintf(stderr,
@@ -20,7 +22,9 @@ void print_usage(const char *progname) {
         "    -N INT          minimum read numbers of hap block [default: 12]\n"
         "    -n INT          minimum phased numbers of phased snps for reads [default: 6]\n\n"
         "--performance options\n"
-        "    -a INT          cpus cores used for the analysis [default: 10]\n\n",
+        "    -a INT          cpus cores used for the analysis [default: 10]\n"
+	"--other options\n"
+	"    -v              version information\n\n",
         progname);
 }
 
@@ -37,7 +41,7 @@ void parse_arguments(int argc, char *argv[], ProgramArguments *args) {
     args->snps_for_reads = DEFAULT_SNPS_FOR_READS;
 
     int opt;
-    while ((opt = getopt(argc, argv, "i:p:o:w:s:N:n:a:")) != -1) {
+    while ((opt = getopt(argc, argv, "i:p:o:w:s:N:n:a:v")) != -1) {
         switch (opt) {
             case 'i':
                 args->bam_file = strdup(optarg);
@@ -63,7 +67,10 @@ void parse_arguments(int argc, char *argv[], ProgramArguments *args) {
             case 'a':
                 args->cpu = atoi(optarg);
                 break;
-            default:
+	    case 'v':
+		printf("Program version: %s\n", VERSION);
+            	exit(EXIT_SUCCESS);
+	    default:
                 print_usage(argv[0]);
                 exit(EXIT_FAILURE);
         }
