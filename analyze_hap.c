@@ -2,7 +2,7 @@
 
 // Process and write results based on haplotype counts and conditions
 void process_blocks(char ***output_array, int *output_size, BlockCount *hap_block_count, WindowBlock *window_blocks,
-                  int block_read_nums, int chr_num) {
+                  int block_read_nums, char *chr_num) {
     BlockCount *entry, *tmp;
     int line_index = 0;
     int initial_size = 10; // 初始分配的行数
@@ -34,15 +34,15 @@ void process_blocks(char ***output_array, int *output_size, BlockCount *hap_bloc
             if (entry->hap1 >= block_read_nums && entry->hap2 >= block_read_nums &&
                 ph1_ratio >= 0.4 && ph2_ratio >= 0.4) {
                 // 使用 sprintf 将格式化字符串存储到 line 中
-                sprintf(line, "%d\t%d\t%d\t%d\t%d\t%d\t2", chr_num, start, end, entry->hap1, entry->hap2, entry->low_accuracy);
+                sprintf(line, "%s\t%d\t%d\t%d\t%d\t%d\t2", chr_num, start, end, entry->hap1, entry->hap2, entry->low_accuracy);
             } else if (entry->hap1 >= block_read_nums && ph1_ratio >= 0.4 && ph3_ratio >= 0.4) {
-                sprintf(line, "%d\t%d\t%d\t%d\t%d\t%d\t1", chr_num, start, end, entry->hap1, entry->hap2, entry->low_accuracy);
+                sprintf(line, "%s\t%d\t%d\t%d\t%d\t%d\t1", chr_num, start, end, entry->hap1, entry->hap2, entry->low_accuracy);
             } else if (entry->hap2 >= block_read_nums && ph2_ratio >= 0.4 && ph3_ratio >= 0.4) {
-                sprintf(line, "%d\t%d\t%d\t%d\t%d\t%d\t1", chr_num, start, end, entry->hap1, entry->hap2, entry->low_accuracy);
+                sprintf(line, "%s\t%d\t%d\t%d\t%d\t%d\t1", chr_num, start, end, entry->hap1, entry->hap2, entry->low_accuracy);
             } else if (entry->low_accuracy >= block_read_nums && ph3_ratio >= 0.8) {
-                sprintf(line, "%d\t%d\t%d\t%d\t%d\t%d\t0", chr_num, start, end, entry->hap1, entry->hap2, entry->low_accuracy);
+                sprintf(line, "%s\t%d\t%d\t%d\t%d\t%d\t0", chr_num, start, end, entry->hap1, entry->hap2, entry->low_accuracy);
 	    } else if (entry->hap1 >= block_read_nums && (ph1_ratio >= 0.8 || ph2_ratio >= 0.8)) {
-            	sprintf(line, "%d\t%d\t%d\t%d\t%d\t%d\t1", chr_num, start, end, entry->hap1, entry->hap2, entry->low_accuracy);
+            	sprintf(line, "%s\t%d\t%d\t%d\t%d\t%d\t1", chr_num, start, end, entry->hap1, entry->hap2, entry->low_accuracy);
 	    } else {
 		continue;
 	    	printf("%s\n",line);
