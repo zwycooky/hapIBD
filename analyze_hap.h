@@ -11,7 +11,7 @@
 
 // Function declarations
 void process_blocks(char ***output_array, int *output_size, BlockCount *hap_block_count, WindowBlock *window_blocks,
-                  int block_read_nums, int chr_num);
+                  int block_read_nums, char *chr_num);
 void freeOutput(char **data, int num_lines);
 
 #endif // ANA_HAP_BLOCK_H
