@@ -21,7 +21,7 @@
 
 typedef struct {
     int window_id;
-    char chromosome[10];
+    char chromosome[100];
     int start;
     int end;
     int block_reads_num;
