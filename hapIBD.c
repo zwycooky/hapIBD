@@ -197,9 +197,9 @@ int main(int argc, char *argv[]) {
 
     }
     
-    printf("start sort merged_array\n");
-    qsort(merged_array, index, sizeof(char *), compare);
-    printf("sorted\n");
+    //printf("start sort merged_array\n");
+    //qsort(merged_array, index, sizeof(char *), compare);
+    //printf("sorted\n");
     
     // output IBD file //
     char IBDout[100];
