@@ -248,7 +248,8 @@ void* process_window(void* arg) {
     //fclose(lowacc_file);
     
     //process hap_count_block
-    int chr_num = extractLastNumber(args->chromosome);
+    //int chr_num = extractLastNumber(args->chromosome);
+    char *chr_num = args->chromosome;
     char **output_array;
     int output_size;
     process_blocks(&output_array, &output_size, hap_block_count, window_block_hash,
