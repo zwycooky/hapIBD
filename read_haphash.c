@@ -130,7 +130,7 @@ void read_hap_file(const char *hap_file, HashNode **hap_map, ChrMaxPos **chr_len
     while (fgets(line, sizeof(line), file)) {
         line[strcspn(line, "\n")] = 0; // 移除换行符
 
-        char chr[10], hap1[10], hap2[10];
+        char chr[100], hap1[10], hap2[10];
         int pos, block;
         //int fields = sscanf(line, "%s %d %s %s %d", chr, &pos, hap1, hap2, &block);
         //if (fields < 4) {
